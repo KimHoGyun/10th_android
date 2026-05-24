@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@drawable/product_4_background"/>
+    <foreground android:drawable="@mipmap/product_4_foreground"/>
+    <monochrome android:drawable="@mipmap/product_4_foreground"/>
+</adaptive-icon>
