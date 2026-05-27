@@ -98,7 +98,7 @@ fun ProductList(
         contentPadding = PaddingValues(vertical = 8.dp),
         modifier = Modifier.fillMaxSize()
     ) {
-        items(items = products, key = { it.name }) { product ->
+        items(items = products, key = { it.id }) { product ->
             ProductListItem(
                 product = product,
                 isWishlisted = isWishlisted(product),
@@ -199,7 +199,7 @@ fun ProductGrid(
         verticalArrangement = Arrangement.spacedBy(16.dp),
         modifier = Modifier.fillMaxSize()
     ) {
-        items(items = products, key = { it.name }) { product ->
+        items(items = products, key = { it.id }) { product ->
             ProductGridItem(
                 product = product,
                 isWishlisted = isWishlisted(product),

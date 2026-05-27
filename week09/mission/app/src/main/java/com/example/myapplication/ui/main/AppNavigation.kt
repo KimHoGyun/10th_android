@@ -32,7 +32,7 @@ sealed class BottomNavItem(val route: String, val label: String, val iconRes: In
 }
 
 fun navigateToDetail(navController: NavController, product: Product) {
-    val route = "detail/${product.image}/${Uri.encode(product.name)}/${Uri.encode(product.category)}/${Uri.encode(product.colors)}/${Uri.encode(product.price)}"
+    val route = "detail/${product.id}/${product.image}/${Uri.encode(product.name)}/${Uri.encode(product.category)}/${Uri.encode(product.colors)}/${Uri.encode(product.price)}"
     navController.navigate(route)
 }
 
@@ -96,8 +96,9 @@ fun AppNavigation() {
                 ProfileScreen()
             }
             composable(
-                route = "detail/{image}/{name}/{category}/{colors}/{price}",
+                route = "detail/{id}/{image}/{name}/{category}/{colors}/{price}",
                 arguments = listOf(
+                    navArgument("id") { type = NavType.IntType },
                     navArgument("image") { type = NavType.IntType },
                     navArgument("name") { type = NavType.StringType },
                     navArgument("category") { type = NavType.StringType },
@@ -105,13 +106,14 @@ fun AppNavigation() {
                     navArgument("price") { type = NavType.StringType }
                 )
             ) { backStackEntry ->
+                val id = backStackEntry.arguments?.getInt("id") ?: 0
                 val image = backStackEntry.arguments?.getInt("image") ?: 0
                 val name = backStackEntry.arguments?.getString("name") ?: ""
                 val category = backStackEntry.arguments?.getString("category") ?: ""
                 val colors = backStackEntry.arguments?.getString("colors") ?: ""
                 val price = backStackEntry.arguments?.getString("price") ?: ""
                 ProductDetailScreen(
-                    product = Product(image, name, category, colors, price),
+                    product = Product(id, image, name, category, colors, price),
                     onBack = { navController.popBackStack() }
                 )
             }

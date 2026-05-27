@@ -74,7 +74,7 @@ fun HomeScreen(
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             modifier = Modifier.padding(bottom = 170.dp)
         ) {
-            items(viewModel.products, key = { product -> product.name }) { product ->
+            items(viewModel.products, key = { product -> product.id }) { product ->
                 HomeProductCard(product = product) {
                     onProductClick(product)
                 }

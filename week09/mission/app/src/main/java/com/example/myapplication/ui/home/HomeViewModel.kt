@@ -9,7 +9,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor() : ViewModel() {
     val products = listOf(
-        Product(R.mipmap.product_1, "Air Jordan XXXVI", "", "", price = "US\$185"),
-        Product(R.mipmap.product_2, "Nike Air Force 1 '07", "", "", price = "US\$115")
+        Product(1, R.mipmap.product_1, "Air Jordan XXXVI", "", "", price = "US\$185"),
+        Product(2, R.mipmap.product_2, "Nike Air Force 1 '07", "", "", price = "US\$115")
     )
 }
